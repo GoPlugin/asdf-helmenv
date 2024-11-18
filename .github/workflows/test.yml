@@ -1,0 +1,15 @@
+name: test
+on:
+  push:
+
+jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: test asdf plugin
+        uses: asdf-vm/actions/plugin-test@v1
+        with:
+          command: "envcli -h"
+        env:
+          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
